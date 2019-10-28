@@ -1,0 +1,14 @@
+.root {
+  align-items: center;
+  background-color: #2d84cc;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.logo {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+}
