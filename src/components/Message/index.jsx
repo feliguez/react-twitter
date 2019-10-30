@@ -12,20 +12,17 @@ class Message extends Component {
       pressFavorite: false,
       pressRetweet: false
     };
-
-    this.onPressRetweet = this.onPressRetweet.bind(this);
-    this.onPressFavorite = this.onPressFavorite.bind(this);
   }
 
-  onPressFavorite() {
+  onPressFavorite = () => {
     this.props.onFavorite();
     this.setState({ pressFavorite: true });
-  }
+  };
 
-  onPressRetweet() {
+  onPressRetweet = () => {
     this.props.onRetweet();
     this.setState({ pressRetweet: true });
-  }
+  };
 
   render() {
     const { msg } = this.props;

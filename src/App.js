@@ -15,9 +15,6 @@ class App extends React.Component {
     this.state = {
       user: null
     };
-
-    this.handleOnAuth = this.handleOnAuth.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentWillMount() {
@@ -30,7 +27,7 @@ class App extends React.Component {
     });
   }
 
-  handleOnAuth() {
+  handleOnAuth = () => {
     const provider = new firebase.auth.GithubAuthProvider();
 
     firebase
@@ -38,15 +35,15 @@ class App extends React.Component {
       .signInWithPopup(provider)
       .then(result => console.log(`${result.user.email} ha iniciado sesión`))
       .catch(error => console.log(`Error: ${error.code}: ${error.message}`));
-  }
+  };
 
-  handleLogout() {
+  handleLogout = () => {
     firebase
       .auth()
       .signOut()
       .then(() => console.log('Te has desconectado correctamente'))
       .catch(() => console.log('Un error ocurrió'));
-  }
+  };
 
   render() {
     return (

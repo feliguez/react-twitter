@@ -21,13 +21,6 @@ class Main extends React.Component {
       usernameToReply: '',
       messages: []
     };
-
-    this.handleOpenText = this.handleOpenText.bind(this);
-    this.handleSendText = this.handleSendText.bind(this);
-    this.handleCloseText = this.handleCloseText.bind(this);
-    this.handleRetweet = this.handleRetweet.bind(this);
-    this.handleFavorite = this.handleFavorite.bind(this);
-    this.handleReplyTweet = this.handleReplyTweet.bind(this);
   }
 
   componentWillMount() {
@@ -43,12 +36,12 @@ class Main extends React.Component {
     });
   }
 
-  handleOpenText(event) {
+  handleOpenText = event => {
     event.preventDefault();
     this.setState({ openText: true });
-  }
+  };
 
-  handleRetweet(msgId) {
+  handleRetweet = msgId => {
     let alreadyRetwweted = this.state.user.retweets.filter(rt => rt === msgId);
 
     if (alreadyRetwweted.length === 0) {
@@ -64,9 +57,9 @@ class Main extends React.Component {
 
       this.setState({ messages, user });
     }
-  }
+  };
 
-  handleFavorite(msgId) {
+  handleFavorite = msgId => {
     let alreadyFavorited = this.state.user.favorites.filter(
       fav => fav === msgId
     );
@@ -83,13 +76,13 @@ class Main extends React.Component {
 
       this.setState({ messages: messages, user: user });
     }
-  }
+  };
 
-  handleReplyTweet(msgId, usernameToReply) {
+  handleReplyTweet = (msgId, usernameToReply) => {
     this.setState({ openText: true, usernameToReply: usernameToReply });
-  }
+  };
 
-  handleSendText(event) {
+  handleSendText = event => {
     event.preventDefault();
 
     let newMessage = {
@@ -109,13 +102,13 @@ class Main extends React.Component {
       .child('messages');
     const messageID = messagesRef.push();
     messageID.set(newMessage);
-  }
+  };
 
-  handleCloseText(event) {
+  handleCloseText = event => {
     event.preventDefault();
 
     this.setState({ openText: false });
-  }
+  };
 
   renderOpenText() {
     if (this.state.openText) {
@@ -144,7 +137,7 @@ class Main extends React.Component {
           onRetweet={this.handleRetweet}
           onFavorite={this.handleFavorite}
           onReplyTweet={this.handleReplyTweet}
-        ></MessageList>
+        />
       </>
     );
   }
