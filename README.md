@@ -1,3 +1,5 @@
+## This project simulate a Twitter timeline using React for UI and Firebase to connect messages from database.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
