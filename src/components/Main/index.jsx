@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import firebase from 'firebase';
 import MessageList from '../MessageList';
 import InputText from '../InputText';
@@ -92,6 +93,7 @@ class Main extends React.Component {
     event.preventDefault();
 
     let newMessage = {
+      id: uuid.v4(),
       username: this.props.user.email.split('@')[0],
       displayName: this.props.user.displayName,
       picture: this.props.user.photoURL,
